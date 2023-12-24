@@ -9,7 +9,8 @@
 		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
 		"preview": "vite preview",
 		"prettier:write": "pnpm exec prettier . --write",
-		"prepare": "husky install"
+		"prepare": "husky install",
+		"commitlint": "commitlint --edit"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
