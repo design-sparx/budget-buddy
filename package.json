@@ -13,6 +13,7 @@
 		"commitlint": "commitlint --edit"
 	},
 	"dependencies": {
+		"@stylexjs/stylex": "^0.3.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
@@ -31,7 +32,8 @@
 		"lint-staged": "^15.2.0",
 		"prettier": "3.1.1",
 		"typescript": "^5.2.2",
-		"vite": "^5.0.8"
+		"vite": "^5.0.8",
+		"vite-plugin-stylex": "^0.4.1"
 	},
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown"
