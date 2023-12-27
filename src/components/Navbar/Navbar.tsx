@@ -1,8 +1,9 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import * as stylex from '@stylexjs/stylex';
-import { styles } from './Navbar.stylex.ts';
+import { styles } from './Navbar.styles.ts';
 import { Logo } from '../Logo';
 import { CaretDownIcon } from '@radix-ui/react-icons';
+import { Button } from '../Button';
 
 const { Root, List, Item, Content, Trigger, Link, Viewport } = NavigationMenu;
 
@@ -73,10 +74,12 @@ export const Navbar = () => {
 			</List>
 			<List {...stylex.props(styles.list)}>
 				<Item>
-					<Link {...stylex.props(styles.link)}>Login</Link>
+					<Button variant="subtle">Login</Button>
 				</Item>
 				<Item>
-					<Link {...stylex.props(styles.link)}>Signup</Link>
+					<Button variant="filled" href="/signup">
+						Signup
+					</Button>
 				</Item>
 			</List>
 			<div {...stylex.props(styles.viewportPosition)}>
