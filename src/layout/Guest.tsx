@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Navbar } from '../components/ui/Navbar';
 import * as stylex from '@stylexjs/stylex';
 import { tokens } from '../token.stylex.ts';
+import { Footer } from '../components/ui';
 
 const styles = stylex.create({
 	base: {
@@ -17,11 +18,14 @@ type GuestLayoutProps = {
 
 export const Guest = ({ children }: GuestLayoutProps) => {
 	return (
-		<main {...stylex.props(styles.base)}>
-			<header>
-				<Navbar />
-			</header>
-			<>{children}</>
-		</main>
+		<>
+			<main {...stylex.props(styles.base)}>
+				<header>
+					<Navbar />
+				</header>
+				<>{children}</>
+				<Footer />
+			</main>
+		</>
 	);
 };

@@ -37,7 +37,7 @@ export const styles = stylex.create({
 		alignItems: 'center',
 		justifyContent: 'space-between',
 		maxWidth: '100vw',
-		backgroundColor: tokens.primaryBg,
+		backgroundColor: tokens.primaryBgSubtle,
 		zIndex: 1,
 		padding: '0 16px',
 	},

@@ -115,7 +115,7 @@ export const fontSizes = stylex.defineVars({
 	h3: '1.75rem',
 	h4: '1.5rem',
 	h5: '1.25rem',
-	h6: '2rem',
+	h6: '1rem',
 
 	lead: '1.25rem',
 });
