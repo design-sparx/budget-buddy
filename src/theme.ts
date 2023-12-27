@@ -124,6 +124,36 @@ const greenDark = {
 	green12: '#b1f1cb',
 };
 
+const mauve = {
+	mauve1: '#fdfcfd',
+	mauve2: '#faf9fb',
+	mauve3: '#f2eff3',
+	mauve4: '#eae7ec',
+	mauve5: '#e3dfe6',
+	mauve6: '#dbd8e0',
+	mauve7: '#d0cdd7',
+	mauve8: '#bcbac7',
+	mauve9: '#8e8c99',
+	mauve10: '#84828e',
+	mauve11: '#65636d',
+	mauve12: '#211f26',
+};
+
+const mauveDark = {
+	mauve1: '#121113',
+	mauve2: '#1a191b',
+	mauve3: '#232225',
+	mauve4: '#2b292d',
+	mauve5: '#323035',
+	mauve6: '#3c393f',
+	mauve7: '#49474e',
+	mauve8: '#625f69',
+	mauve9: '#6f6d78',
+	mauve10: '#7c7a85',
+	mauve11: '#b5b2bc',
+	mauve12: '#eeeef0',
+};
+
 export const jadeTheme = stylex.createTheme(tokens, {
 	primaryBase: { default: jade.jade1, [DARK]: jadeDark.jade1 },
 	primaryBgSubtle: { default: jade.jade2, [DARK]: jadeDark.jade2 },
@@ -182,6 +212,20 @@ export const jadeTheme = stylex.createTheme(tokens, {
 	dangerSolidHover: { default: red.red10, [DARK]: redDark.red10 },
 	dangerText: { default: red.red11, [DARK]: redDark.red11 },
 	dangerTextContrast: { default: red.red12, [DARK]: redDark.red12 },
+
+	// gray - mauve
+	grayBase: { default: mauve.mauve1, [DARK]: mauveDark.mauve1 },
+	grayBgSubtle: { default: mauve.mauve2, [DARK]: mauveDark.mauve2 },
+	grayBg: { default: mauve.mauve3, [DARK]: mauveDark.mauve3 },
+	grayBgHover: { default: mauve.mauve4, [DARK]: mauveDark.mauve4 },
+	grayBgActive: { default: mauve.mauve5, [DARK]: mauveDark.mauve5 },
+	grayLine: { default: mauve.mauve6, [DARK]: mauveDark.mauve6 },
+	grayBorder: { default: mauve.mauve7, [DARK]: mauveDark.mauve7 },
+	grayBorderHover: { default: mauve.mauve8, [DARK]: mauveDark.mauve8 },
+	graySolid: { default: mauve.mauve9, [DARK]: mauveDark.mauve9 },
+	graySolidHover: { default: mauve.mauve10, [DARK]: mauveDark.mauve10 },
+	grayText: { default: mauve.mauve11, [DARK]: mauveDark.mauve11 },
+	grayTextContrast: { default: mauve.mauve12, [DARK]: mauveDark.mauve12 },
 
 	fontFamily: 'Open Sans',
 });

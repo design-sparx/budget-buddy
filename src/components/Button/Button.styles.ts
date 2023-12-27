@@ -70,6 +70,7 @@ export const styles = stylex.create({
 			':focus-within': tokens.dangerSolidHover,
 		},
 	},
+	xxl: {},
 	xl: {},
 	lg: {
 		fontSize: '20px',
@@ -83,6 +84,7 @@ export const styles = stylex.create({
 		fontSize: '14px',
 		padding: '4px 8px',
 	},
+	xs: {},
 	w: (width) => ({
 		width,
 	}),

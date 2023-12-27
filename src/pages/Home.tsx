@@ -1,9 +1,10 @@
 import { GuestLayout } from '../layout';
+import { HeroSection } from '../sections/Hero';
 
 export const Home = () => {
 	return (
 		<GuestLayout>
-			<h1>Home</h1>
+			<HeroSection />
 		</GuestLayout>
 	);
 };

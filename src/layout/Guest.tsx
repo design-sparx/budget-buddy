@@ -6,6 +6,7 @@ import { tokens } from '../token.stylex.ts';
 const styles = stylex.create({
 	base: {
 		backgroundColor: tokens.primaryBase,
+		color: tokens.primaryText,
 		minHeight: '100dvh',
 	},
 });
@@ -20,7 +21,7 @@ export const Guest = ({ children }: GuestLayoutProps) => {
 			<header>
 				<Navbar />
 			</header>
-			<main>{children}</main>
+			<>{children}</>
 		</main>
 	);
 };

@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { tokens } from '../../token.stylex.ts';
+import { radius, tokens } from '../../token.stylex.ts';
 
 const scaleIn = stylex.keyframes({
 	from: { opacity: 0, transform: 'rotateX(-30deg) scale(0.9)' },
@@ -52,8 +52,8 @@ export const styles = stylex.create({
 		outline: 'none',
 		userSelect: 'none',
 		fontWeight: 500,
-		borderRadius: '4px',
 		fontSize: '16px',
+		borderRadius: radius['4'],
 		lineHeight: 1,
 		color: tokens.primaryText,
 		textTransform: 'capitalize',
@@ -63,6 +63,8 @@ export const styles = stylex.create({
 
 		':hover': {
 			backgroundColor: tokens.primaryBgHover,
+			cursor: 'pointer',
+			transition: 'all 250ms ease',
 		},
 	},
 	content: {
