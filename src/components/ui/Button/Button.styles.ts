@@ -1,14 +1,17 @@
 import * as stylex from '@stylexjs/stylex';
-import { radius, tokens } from '../../token.stylex.ts';
+import { radius, spacing, tokens } from '../../../token.stylex.ts';
 
 const DARK = '@media (prefers-color-scheme: dark)';
 
 export const styles = stylex.create({
 	base: {
-		border: '2px solid transparent',
-		fontWeight: 500,
+		display: 'flex',
+		alignItems: 'center',
+		gap: spacing['2'],
 		color: tokens.primaryText,
+		border: '2px solid transparent',
 		borderRadius: radius['7'],
+		fontWeight: 500,
 		textDecoration: 'none',
 
 		':hover': {

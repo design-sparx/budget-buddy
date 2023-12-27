@@ -1,29 +1,22 @@
 import { ComponentProps, ReactNode } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import { styles as containerStyles } from './Container.styles.ts';
-import { ISizes } from '../../types';
+import { styles } from './Container.styles.ts';
+import { ISizes } from '../../../types';
 
 export type ContainerProps = {
 	children: ReactNode;
 	size?: Partial<ISizes>;
-	styles?: stylex.StyleXStyles;
+	sx?: stylex.StyleXStyles;
 } & ComponentProps<'div'>;
 
 export const Container = ({
 	children,
 	size,
-	styles,
+	sx,
 	...others
 }: ContainerProps) => {
 	return (
-		<div
-			{...stylex.props(
-				containerStyles.base,
-				size && containerStyles[size],
-				styles
-			)}
-			{...others}
-		>
+		<div {...stylex.props(styles.base, size && styles[size], sx)} {...others}>
 			{children}
 		</div>
 	);

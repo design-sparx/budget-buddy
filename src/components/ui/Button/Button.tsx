@@ -1,7 +1,7 @@
 import { ComponentProps, ReactNode } from 'react';
 import * as stylex from '@stylexjs/stylex';
-import { styles as buttonStyles } from './Button.styles.ts';
-import { ISizes } from '../../types';
+import { styles } from './Button.styles.ts';
+import { ISizes } from '../../../types';
 
 export type ButtonVariants =
 	| 'subtle'
@@ -19,7 +19,7 @@ export type ButtonProps = {
 	loading?: boolean;
 	disabled?: boolean;
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
-	styles?: stylex.StyleXStyles<{ textTransform?: string }>;
+	sx?: stylex.StyleXStyles<{ textTransform?: string }>;
 } & ComponentProps<'a' | 'button'>;
 
 export const Button = (props: ButtonProps) => {
@@ -32,7 +32,7 @@ export const Button = (props: ButtonProps) => {
 		leftSection,
 		rightSection,
 		w,
-		styles,
+		sx,
 		...others
 	} = props;
 
@@ -40,11 +40,11 @@ export const Button = (props: ButtonProps) => {
 		<a
 			href={href}
 			{...stylex.props(
-				buttonStyles.base,
-				buttonStyles[variant],
-				size && buttonStyles[size],
-				buttonStyles.w(w),
-				styles
+				styles.base,
+				styles[variant],
+				size && styles[size],
+				styles.w(w),
+				sx
 			)}
 		>
 			{leftSection}
@@ -54,11 +54,11 @@ export const Button = (props: ButtonProps) => {
 	) : (
 		<button
 			{...stylex.props(
-				buttonStyles.base,
-				buttonStyles[variant],
-				size && buttonStyles[size],
-				buttonStyles.w(w),
-				styles
+				styles.base,
+				styles[variant],
+				size && styles[size],
+				styles.w(w),
+				sx
 			)}
 		>
 			{leftSection}

@@ -1,7 +1,7 @@
-import { Container, ContainerProps } from '../../components/Container';
+import { Container, ContainerProps } from '../../components/ui/Container';
 import * as stylex from '@stylexjs/stylex';
 import { fontSizes, spacing, tokens } from '../../token.stylex.ts';
-import { Button } from '../../components/Button';
+import { Button } from '../../components/ui/Button';
 
 const styles = stylex.create({
 	base: {
@@ -26,7 +26,7 @@ const styles = stylex.create({
 	},
 	actions: {
 		display: 'flex',
-		gap: spacing['2'],
+		gap: spacing['4'],
 		marginTop: spacing['6'],
 	},
 	control: {
@@ -51,10 +51,10 @@ export const Hero = ({ style, ...others }: HeroSectionProps) => {
 						whenever you want to.
 					</p>
 					<div {...stylex.props(styles.actions)}>
-						<Button variant="filled" size="lg" styles={styles.control}>
+						<Button variant="filled" size="lg" sx={styles.control}>
 							open an account
 						</Button>
-						<Button variant="outline" size="lg" styles={styles.control}>
+						<Button variant="outline" size="lg" sx={styles.control}>
 							explore more
 						</Button>
 					</div>

@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { radius, tokens } from '../../token.stylex.ts';
+import { radius, tokens } from '../../../token.stylex.ts';
 
 const scaleIn = stylex.keyframes({
 	from: { opacity: 0, transform: 'rotateX(-30deg) scale(0.9)' },

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Navbar } from '../components/Navbar';
+import { Navbar } from '../components/ui/Navbar';
 import * as stylex from '@stylexjs/stylex';
 import { tokens } from '../token.stylex.ts';
 

@@ -1,7 +1,7 @@
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './Navbar.styles.ts';
-import { Logo } from '../Logo';
+import { Logo } from '../../Logo';
 import { CaretDownIcon } from '@radix-ui/react-icons';
 import { Button } from '../Button';
 

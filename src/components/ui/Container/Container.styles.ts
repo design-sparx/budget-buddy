@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { container, spacing } from '../../token.stylex.ts';
+import { container, spacing } from '../../../token.stylex.ts';
 
 export const styles = stylex.create({
 	base: {

@@ -83,6 +83,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-grid-system:
+    specifier: ^8.1.9
+    version: 8.1.9(react@18.2.0)
   wouter:
     specifier: ^2.12.1
     version: 2.12.1(react@18.2.0)
@@ -5204,6 +5207,14 @@ packages:
       path-key: 4.0.0
     dev: true
 
+  /object-assign@4.1.1:
+    resolution:
+      {
+        integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==,
+      }
+    engines: { node: '>=0.10.0' }
+    dev: false
+
   /once@1.4.0:
     resolution:
       {
@@ -5426,6 +5437,17 @@ packages:
     hasBin: true
     dev: true
 
+  /prop-types@15.8.1:
+    resolution:
+      {
+        integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==,
+      }
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
+    dev: false
+
   /punycode@2.3.1:
     resolution:
       {
@@ -5460,6 +5482,25 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-grid-system@8.1.9(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-EdyhAUkc1kJKNZpefIe8UwSJe1JFqKviyv6f2MBFopNYAZDHHYu+zyjQJ7tPJUtcGU1qA47WsCDiN8cSUGtfWA==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.x || ^18.x
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /react-is@16.13.1:
+    resolution:
+      {
+        integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
+      }
     dev: false
 
   /react-remove-scroll-bar@2.3.4(@types/react@18.2.45)(react@18.2.0):
