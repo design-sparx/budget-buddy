@@ -1,9 +1,8 @@
 import { GuestLayout } from '../layout';
 import { HeroSection } from '../sections/Hero';
-import { Container, Col, Row } from 'react-grid-system';
-import { Button, Card, Collapsible } from '../components/ui';
+import { Col, Container, Row } from 'react-grid-system';
+import { Button, Card, Collapsible, Flex } from '../components/ui';
 import * as stylex from '@stylexjs/stylex';
-import { Flex } from '../components/ui/Flex';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { fontSizes, spacing } from '../token.stylex.ts';
 

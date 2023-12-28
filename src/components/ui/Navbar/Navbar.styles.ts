@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { radius, tokens } from '../../../token.stylex.ts';
+import { radius, spacing, tokens } from '../../../token.stylex.ts';
 
 const scaleIn = stylex.keyframes({
 	from: { opacity: 0, transform: 'rotateX(-30deg) scale(0.9)' },
@@ -45,7 +45,7 @@ export const styles = stylex.create({
 		display: 'flex',
 		listStyle: 'none',
 		alignItems: 'center',
-		gap: '4px',
+		gap: spacing['2'],
 	},
 	link: {
 		padding: '8px 12px',

@@ -1,6 +1,6 @@
-function path(root: string, sublink: string) {
+export const path = (root: string, sublink: string): string => {
 	return `${root}${sublink}`;
-}
+};
 
 const ROOT_GUEST = '';
 const ROOT_APP = '/app';

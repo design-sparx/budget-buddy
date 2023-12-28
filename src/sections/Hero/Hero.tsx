@@ -2,6 +2,8 @@ import { Container, ContainerProps } from '../../components/ui/Container';
 import * as stylex from '@stylexjs/stylex';
 import { fontSizes, spacing, tokens } from '../../token.stylex.ts';
 import { Button } from '../../components/ui/Button';
+import { PATH_APP } from '../../constants/routes.ts';
+import { Link } from 'wouter';
 
 const styles = stylex.create({
 	base: {
@@ -51,9 +53,11 @@ export const Hero = ({ style, ...others }: HeroSectionProps) => {
 						whenever you want to.
 					</p>
 					<div {...stylex.props(styles.actions)}>
-						<Button variant="filled" size="lg" sx={styles.control}>
-							open an account
-						</Button>
+						<Link href={PATH_APP.root}>
+							<Button variant="filled" size="lg" sx={styles.control}>
+								open an account
+							</Button>
+						</Link>
 						<Button variant="outline" size="lg" sx={styles.control}>
 							explore more
 						</Button>

@@ -4,6 +4,7 @@ import { styles } from './Navbar.styles.ts';
 import { Logo } from '../../Logo';
 import { CaretDownIcon } from '@radix-ui/react-icons';
 import { Button } from '../Button';
+import { PATH_APP } from '../../../constants/routes.ts';
 
 const { Root, List, Item, Content, Trigger, Link, Viewport } = NavigationMenu;
 
@@ -74,7 +75,9 @@ export const Navbar = () => {
 			</List>
 			<List {...stylex.props(styles.list)}>
 				<Item>
-					<Button variant="subtle">Login</Button>
+					<Link href={PATH_APP.root}>
+						<Button variant="subtle">Login</Button>
+					</Link>
 				</Item>
 				<Item>
 					<Button variant="filled" href="/signup">
