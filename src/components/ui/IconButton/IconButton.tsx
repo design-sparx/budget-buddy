@@ -1,33 +1,21 @@
-import { ComponentProps, ReactNode } from 'react';
-import * as stylex from '@stylexjs/stylex';
-import { styles } from './Button.styles.ts';
 import { ButtonVariants, ISizes } from '../../../types';
+import { ComponentProps } from 'react';
+import * as stylex from '@stylexjs/stylex';
+import { styles } from './IconButton.styles.ts';
 
-export type ButtonProps = {
+export type IconButtonProps = {
 	href?: string;
 	variant?: ButtonVariants;
 	size?: Partial<ISizes>;
-	leftSection?: ReactNode;
-	rightSection?: ReactNode;
 	loading?: boolean;
 	disabled?: boolean;
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
+	h?: stylex.StyleXStyles<{ height?: string | number }>;
 	sx?: stylex.StyleXStyles<{ textTransform?: string }>;
 } & ComponentProps<'a' | 'button'>;
 
-export const Button = (props: ButtonProps) => {
-	const {
-		href,
-		variant = 'default',
-		size = 'md',
-		loading = false,
-		disabled = false,
-		leftSection,
-		rightSection,
-		w,
-		sx,
-		...others
-	} = props;
+export const IconButton = (props: IconButtonProps) => {
+	const { href, variant = 'default', size = 'md', w, sx, h, ...others } = props;
 
 	return href ? (
 		<a
@@ -37,12 +25,11 @@ export const Button = (props: ButtonProps) => {
 				styles[variant],
 				size && styles[size],
 				styles.w(w),
+				styles.h(h),
 				sx
 			)}
 		>
-			{leftSection}
 			{others.children}
-			{rightSection}
 		</a>
 	) : (
 		<button
@@ -51,12 +38,11 @@ export const Button = (props: ButtonProps) => {
 				styles[variant],
 				size && styles[size],
 				styles.w(w),
+				styles.h(h),
 				sx
 			)}
 		>
-			{leftSection}
 			{others.children}
-			{rightSection}
 		</button>
 	);
 };

@@ -21,6 +21,5 @@ export const styles = stylex.create({
 	header: {},
 	main: {
 		width: `calc(100% - 300px)`,
-		backgroundColor: tokens.primarySolid,
 	},
 });

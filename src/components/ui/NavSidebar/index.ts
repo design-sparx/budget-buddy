@@ -1,1 +1,1 @@
-export { NavSidebar } from './NavSidebar.tsx';
+export { NavSidebar, type NavSidebarProps } from './NavSidebar.tsx';
