@@ -7,10 +7,10 @@ export type CardProps = {
 	children: ReactNode;
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
 	bg?: stylex.StyleXStyles<{ backgroundColo?: string }>;
-	title?: string;
-	subtitle?: string;
+	title?: ReactNode;
+	subtitle?: ReactNode;
 	footer?: ReactNode;
-	extra?: ReactNode;
+	extra?: any;
 	img?: string;
 	shadow?: IShadows;
 	border?: boolean;
@@ -45,12 +45,12 @@ export const Card = (props: CardProps) => {
 		>
 			<div {...stylex.props(styles.header)}>
 				<div>
-					<h5 {...stylex.props(styles.title)}>{title}</h5>
-					<h6 {...stylex.props(styles.subtitle)}>{subtitle}</h6>
+					{title}
+					{subtitle}
 				</div>
-				<div>{extra}</div>
+				{extra}
 			</div>
-			{children}
+			<div {...stylex.props(styles.body)}>{children}</div>
 			<div {...stylex.props(styles.footer)}>{footer}</div>
 		</article>
 	);

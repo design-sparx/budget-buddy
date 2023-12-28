@@ -77,12 +77,18 @@ dependencies:
   '@stylexjs/stylex':
     specifier: ^0.3.0
     version: 0.3.0
+  chart.js:
+    specifier: ^4.4.1
+    version: 4.4.1
   lucide-react:
     specifier: ^0.302.0
     version: 0.302.0(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
+  react-chartjs-2:
+    specifier: ^5.2.0
+    version: 5.2.0(chart.js@4.4.1)(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -100,6 +106,9 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^18.4.3
     version: 18.4.3
+  '@faker-js/faker':
+    specifier: ^8.3.1
+    version: 8.3.1
   '@stylexjs/eslint-plugin':
     specifier: ^0.3.0
     version: 0.3.0
@@ -1020,6 +1029,14 @@ packages:
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
     dev: true
 
+  /@faker-js/faker@8.3.1:
+    resolution:
+      {
+        integrity: sha512-FdgpFxY6V6rLZE9mmIBb9hM0xpfvQOSNOLnzolzKwsE1DH+gC7lEKV1p1IbR0lAYyvYd5a4u3qWJzowUkw1bIw==,
+      }
+    engines: { node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13' }
+    dev: true
+
   /@floating-ui/core@1.5.2:
     resolution:
       {
@@ -1133,6 +1150,13 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
+
+  /@kurkle/color@0.3.2:
+    resolution:
+      {
+        integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==,
+      }
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution:
@@ -3561,6 +3585,16 @@ packages:
     engines: { node: ^12.17.0 || ^14.13 || >=16.0.0 }
     dev: true
 
+  /chart.js@4.4.1:
+    resolution:
+      {
+        integrity: sha512-C74QN1bxwV1v2PEujhmKjOZ7iUM4w6BWs23Md/6aOZZSlwMzeCIDGuZay++rBgChYru7/+QFeoQW0fQoP534Dg==,
+      }
+    engines: { pnpm: '>=7' }
+    dependencies:
+      '@kurkle/color': 0.3.2
+    dev: false
+
   /classnames@2.3.2:
     resolution:
       {
@@ -5484,6 +5518,19 @@ packages:
       }
     engines: { node: '>=8' }
     dev: true
+
+  /react-chartjs-2@5.2.0(chart.js@4.4.1)(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-98iN5aguJyVSxp5U3CblRLH67J8gkfyGNbiK3c+l1QI/G4irHMPQw44aEPmjVag+YKTyQ260NcF82GTQ3bdscA==,
+      }
+    peerDependencies:
+      chart.js: ^4.1.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      chart.js: 4.4.1
+      react: 18.2.0
+    dev: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution:

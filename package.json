@@ -37,8 +37,10 @@
 		"@radix-ui/react-tooltip": "^1.0.7",
 		"@radix-ui/themes": "^2.0.3",
 		"@stylexjs/stylex": "^0.3.0",
+		"chart.js": "^4.4.1",
 		"lucide-react": "^0.302.0",
 		"react": "^18.2.0",
+		"react-chartjs-2": "^5.2.0",
 		"react-dom": "^18.2.0",
 		"react-grid-system": "^8.1.9",
 		"wouter": "^2.12.1"
@@ -46,6 +48,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^18.4.3",
 		"@commitlint/config-conventional": "^18.4.3",
+		"@faker-js/faker": "^8.3.1",
 		"@stylexjs/eslint-plugin": "^0.3.0",
 		"@types/react": "^18.2.43",
 		"@types/react-dom": "^18.2.17",

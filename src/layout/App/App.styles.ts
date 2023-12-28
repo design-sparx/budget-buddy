@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { tokens } from '../../token.stylex.ts';
+import { spacing, tokens } from '../../token.stylex.ts';
 
 export const styles = stylex.create({
 	base: {
@@ -20,6 +20,7 @@ export const styles = stylex.create({
 	},
 	header: {},
 	main: {
+		padding: `${spacing['2']} ${spacing['4']}`,
 		width: `calc(100% - 300px)`,
 	},
 });

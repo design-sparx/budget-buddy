@@ -8,7 +8,6 @@ export const styles = stylex.create({
 		alignItems: 'center',
 		flexDirection: 'row',
 		gap: spacing['2'],
-		padding: `${spacing['2']} ${spacing['4']}`,
 		color: tokens.grayText,
 	},
 	h: (height) => ({

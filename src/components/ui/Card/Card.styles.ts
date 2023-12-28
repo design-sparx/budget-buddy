@@ -17,6 +17,7 @@ export const styles = stylex.create({
 	header: {
 		display: 'flex',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 	},
 	text: {},
 	title: {
@@ -28,7 +29,10 @@ export const styles = stylex.create({
 		fontSize: fontSizes.h6,
 		margin: 0,
 	},
-	body: {},
+	body: {
+		marginTop: spacing['4'],
+		marginBottom: spacing['4'],
+	},
 	footer: {},
 	w: (width) => ({
 		width,
