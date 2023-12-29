@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Flex } from '../Flex';
 import { TextField } from '../TextField';
+import { Select } from '../Select';
 
 export type TableProps<TData, TValue> = {
 	data: TData[];
@@ -116,18 +117,16 @@ export function Table<TData, TValue>({
 					}}
 					w={100}
 				/>
-				<select
-					value={table.getState().pagination.pageSize}
-					onChange={(e) => {
-						table.setPageSize(Number(e.target.value));
+				<Select
+					defaultValue={table.getState().pagination.pageSize.toString()}
+					onChange={(value: any) => {
+						table.setPageSize(Number(value));
 					}}
-				>
-					{[10, 20, 30, 40, 50].map((pageSize) => (
-						<option key={pageSize} value={pageSize}>
-							Show {pageSize}
-						</option>
-					))}
-				</select>
+					items={[10, 20, 30, 40, 50].map((_) => ({
+						label: _.toString(),
+						value: _.toString(),
+					}))}
+				/>
 				<Flex align="center">
 					<IconButton
 						onClick={() => table.setPageIndex(0)}

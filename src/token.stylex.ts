@@ -118,6 +118,8 @@ export const fontSizes = stylex.defineVars({
 	h6: '1rem',
 
 	lead: '1.25rem',
+
+	normal: '1rem',
 });
 
 export const container = stylex.defineVars({

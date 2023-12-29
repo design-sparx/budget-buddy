@@ -10,3 +10,10 @@ export { NavSidebar, type NavSidebarProps } from './NavSidebar';
 export { IconButton, type IconButtonProps } from './IconButton';
 export { AppHeader, type AppHeaderProps } from './AppHeader';
 export { Table, type TableProps } from './Table';
+export {
+	TextField,
+	type TextFieldVariants,
+	type TextFieldSizes,
+	type TextFieldProps,
+} from './TextField';
+export { Select, type SelectProps, SelectItem } from './Select';
