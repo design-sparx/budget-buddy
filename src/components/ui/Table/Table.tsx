@@ -18,6 +18,7 @@ import {
 	ChevronRightIcon,
 } from 'lucide-react';
 import { Flex } from '../Flex';
+import { TextField } from '../TextField';
 
 export type TableProps<TData, TValue> = {
 	data: TData[];
@@ -98,50 +99,23 @@ export function Table<TData, TValue>({
 				</tbody>
 			</table>
 			<div className="h-2" />
-			<Flex>
-				<IconButton
-					onClick={() => table.setPageIndex(0)}
-					disabled={!table.getCanPreviousPage()}
-				>
-					<ChevronFirstIcon />
-				</IconButton>
-				<IconButton
-					onClick={() => table.previousPage()}
-					disabled={!table.getCanPreviousPage()}
-				>
-					<ChevronLeftIcon />
-				</IconButton>
-				<IconButton
-					onClick={() => table.nextPage()}
-					disabled={!table.getCanNextPage()}
-				>
-					<ChevronRightIcon />
-				</IconButton>
-				<IconButton
-					onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-					disabled={!table.getCanNextPage()}
-				>
-					<ChevronLastIcon />
-				</IconButton>
-				<span className="flex items-center gap-1">
-					<div>Page</div>
-					<strong>
-						{table.getState().pagination.pageIndex + 1} of{' '}
-						{table.getPageCount()}
-					</strong>
-				</span>
-				<span className="flex items-center gap-1">
-					| Go to page:
-					<input
-						type="number"
-						defaultValue={table.getState().pagination.pageIndex + 1}
-						onChange={(e) => {
-							const page = e.target.value ? Number(e.target.value) - 1 : 0;
-							table.setPageIndex(page);
-						}}
-						className="border p-1 rounded w-16"
-					/>
-				</span>
+			<Flex align="center" justify="between" sx={styles.footer}>
+				<Flex align="center" gap={1}>
+					<span>{table.getState().pagination.pageIndex + 1} -</span>
+					<span>{table.getPageCount()}</span>
+					<span>/{table.getRowModel().rows.length}</span>
+				</Flex>
+				<TextField
+					label="Go to page:"
+					type="number"
+					defaultValue={table.getState().pagination.pageIndex + 1}
+					min={1}
+					onChange={(e: any) => {
+						const page = e.target.value ? Number(e.target.value) - 1 : 0;
+						table.setPageIndex(page);
+					}}
+					w={100}
+				/>
 				<select
 					value={table.getState().pagination.pageSize}
 					onChange={(e) => {
@@ -154,9 +128,33 @@ export function Table<TData, TValue>({
 						</option>
 					))}
 				</select>
+				<Flex align="center">
+					<IconButton
+						onClick={() => table.setPageIndex(0)}
+						disabled={!table.getCanPreviousPage()}
+					>
+						<ChevronFirstIcon size={16} />
+					</IconButton>
+					<IconButton
+						onClick={() => table.previousPage()}
+						disabled={!table.getCanPreviousPage()}
+					>
+						<ChevronLeftIcon size={16} />
+					</IconButton>
+					<IconButton
+						onClick={() => table.nextPage()}
+						disabled={!table.getCanNextPage()}
+					>
+						<ChevronRightIcon size={16} />
+					</IconButton>
+					<IconButton
+						onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+						disabled={!table.getCanNextPage()}
+					>
+						<ChevronLastIcon size={16} />
+					</IconButton>
+				</Flex>
 			</Flex>
-			<div>{table.getRowModel().rows.length} Rows</div>
-			<pre>{JSON.stringify(table.getState().pagination, null, 2)}</pre>
 		</div>
 	);
 }

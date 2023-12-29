@@ -25,6 +25,8 @@ body {
 
 /*reset*/
 button,
-p {
+p,
+input,
+textarea {
 	all: unset;
 }

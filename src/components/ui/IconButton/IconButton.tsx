@@ -12,7 +12,7 @@ export type IconButtonProps = {
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
 	h?: stylex.StyleXStyles<{ height?: string | number }>;
 	sx?: stylex.StyleXStyles<{ textTransform?: string }>;
-} & ComponentProps<'a' | 'button'>;
+} & ComponentProps<'button'>;
 
 export const IconButton = (props: IconButtonProps) => {
 	const { href, variant = 'default', size = 'md', w, sx, h, ...others } = props;
@@ -41,6 +41,7 @@ export const IconButton = (props: IconButtonProps) => {
 				styles.h(h),
 				sx
 			)}
+			{...others}
 		>
 			{others.children}
 		</button>

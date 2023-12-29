@@ -24,5 +24,9 @@ export const styles = stylex.create({
 		padding: spacing['3'],
 		height: '44px',
 	},
-	footerActions: {},
+	footer: {
+		padding: `${spacing['4']} 0`,
+		alignItems: 'center',
+		justifyContent: 'space-between',
+	},
 });
