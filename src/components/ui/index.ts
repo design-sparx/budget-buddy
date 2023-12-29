@@ -9,3 +9,4 @@ export { NavLink, type NavLinkProps } from './NavLink';
 export { NavSidebar, type NavSidebarProps } from './NavSidebar';
 export { IconButton, type IconButtonProps } from './IconButton';
 export { AppHeader, type AppHeaderProps } from './AppHeader';
+export { Table, type TableProps } from './Table';

@@ -3,6 +3,7 @@ import * as RadixCollapsible from '@radix-ui/react-collapsible';
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import { styles } from './Collapsible.styles.ts';
 import * as stylex from '@stylexjs/stylex';
+import { BaseProps } from '../../../types';
 
 const { Root, Trigger, Content } = RadixCollapsible;
 
@@ -10,8 +11,7 @@ export type CollapsibleProps = {
 	label: string;
 	children: ReactNode;
 	opened?: boolean;
-	sx?: stylex.StyleXStyles;
-};
+} & BaseProps;
 
 export const Collapsible = (props: CollapsibleProps) => {
 	const { sx, label, children, opened } = props;

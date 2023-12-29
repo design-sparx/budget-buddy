@@ -10,6 +10,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { faker } from '@faker-js/faker';
 import { Card } from '../ui';
+import { BaseProps } from '../../types';
 
 ChartJS.register(
 	CategoryScale,
@@ -61,9 +62,11 @@ export const data = {
 	],
 };
 
-export const InsightsChart = () => {
+export type InsightsProps = BaseProps;
+
+export const InsightsChart = ({ sx }: InsightsProps) => {
 	return (
-		<Card>
+		<Card sx={sx}>
 			<Bar options={options} data={data} />
 		</Card>
 	);

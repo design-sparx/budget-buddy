@@ -1,9 +1,14 @@
 import * as stylex from '@stylexjs/stylex';
-import { ComponentProps, ReactNode } from 'react';
+import {
+	ComponentProps,
+	JSXElementConstructor,
+	ReactElement,
+	ReactNode,
+} from 'react';
 import { styles } from './Card.styles.ts';
-import { IShadows } from '../../../types';
+import { BaseProps, IShadows } from '../../../types';
 
-export type CardProps = {
+export type CardProps = ({
 	children: ReactNode;
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
 	bg?: stylex.StyleXStyles<{ backgroundColo?: string }>;
@@ -14,8 +19,8 @@ export type CardProps = {
 	img?: string;
 	shadow?: IShadows;
 	border?: boolean;
-	sx?: stylex.StyleXStyles;
-} & ComponentProps<'article'>;
+} & ComponentProps<'article'>) &
+	BaseProps;
 
 export const Card = (props: CardProps) => {
 	const {

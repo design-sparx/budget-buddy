@@ -12,6 +12,7 @@ export type StatsCardProps = {
 export const StatsCard = ({ title, amount, diff }: StatsCardProps) => {
 	return (
 		<Card
+			// @ts-ignore
 			title={
 				<Flex sx={styles.title}>
 					<p>{title}</p>
