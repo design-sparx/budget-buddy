@@ -5,6 +5,7 @@ import {
 	getCoreRowModel,
 	getFilteredRowModel,
 	getPaginationRowModel,
+	PaginationState,
 	Table as ReactTable,
 	useReactTable,
 } from '@tanstack/react-table';
@@ -20,6 +21,7 @@ import {
 import { Flex } from '../Flex';
 import { TextField } from '../TextField';
 import { Select } from '../Select';
+import { useMemo, useState } from 'react';
 
 export type TableProps<TData, TValue> = {
 	data: TData[];
@@ -32,13 +34,30 @@ export function Table<TData, TValue>({
 	data,
 	filters,
 }: TableProps<TData, TValue>) {
+	const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
+		pageIndex: 0,
+		pageSize: 5,
+	});
+
+	const pagination = useMemo(
+		() => ({
+			pageIndex,
+			pageSize,
+		}),
+		[pageIndex, pageSize]
+	);
+
 	const table = useReactTable({
 		data,
 		columns,
+		state: {
+			pagination,
+		},
 		// Pipeline
 		getCoreRowModel: getCoreRowModel(),
 		getFilteredRowModel: getFilteredRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
+		onPaginationChange: setPagination,
 		//
 		debugTable: true,
 	});
@@ -122,7 +141,7 @@ export function Table<TData, TValue>({
 					onChange={(value: any) => {
 						table.setPageSize(Number(value));
 					}}
-					items={[10, 20, 30, 40, 50].map((_) => ({
+					items={[5, 10, 20].map((_) => ({
 						label: _.toString(),
 						value: _.toString(),
 					}))}

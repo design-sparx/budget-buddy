@@ -106,7 +106,7 @@ export const SelectItem = forwardRef(
 			<Item {...stylex.props(styles.item)} {...props} ref={forwardedRef}>
 				<ItemText>{children}</ItemText>
 				<ItemIndicator {...stylex.props(styles.indicator)}>
-					<CheckIcon size={16} />
+					<CheckIcon size={14} />
 				</ItemIndicator>
 			</Item>
 		);

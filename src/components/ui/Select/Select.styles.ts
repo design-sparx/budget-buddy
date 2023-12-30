@@ -38,8 +38,9 @@ export const styles = stylex.create({
 	},
 	content: {
 		overflow: 'hidden',
+		padding: spacing['1'],
 		backgroundColor: 'white',
-		border: `1px solid ${tokens.grayBorder}`,
+		border: `1px solid none`,
 		borderRadius: radius['2'],
 		boxShadow:
 			'0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
@@ -70,10 +71,10 @@ export const styles = stylex.create({
 	item: {
 		fontSize: fontSizes.normal,
 		lineHeight: '1px',
-		borderRadius: spacing['6'],
+		borderRadius: spacing['2'],
 		display: 'flex',
 		alignItems: 'center',
-		gap: spacing['2'],
+		gap: spacing['3'],
 		height: spacing['5'],
 		padding: `0 ${spacing['6']} 0 ${spacing['5']}`,
 		position: 'relative',

@@ -1,16 +1,31 @@
 import { AppLayout } from '../layout';
 import { Col, Row } from 'react-grid-system';
-import { Card, Flex } from '../components/ui';
+import { Button, Card, Flex, IconButton, List } from '../components/ui';
 import * as stylex from '@stylexjs/stylex';
 import { spacing, tokens } from '../token.stylex.ts';
 import { StatsCard } from '../components/StatsCard';
-import { InsightsChart } from '../components/InsightsChart';
+import { InsightsChart, SummaryChart } from '../components/Charts';
 import { TransactionsTable } from '../components/TransactionsTable';
+import {
+	ArrowDownCircle,
+	ArrowUpCircleIcon,
+	CoinsIcon,
+	MoreVerticalIcon,
+	PlusIcon,
+	Wallet2,
+} from 'lucide-react';
 
 const STATS = [
 	{ title: 'total income', amount: '$16,080.00', diff: 23 },
 	{ title: 'total expenses', amount: '$8,040.00', diff: 17 },
 	{ title: 'total save', amount: '$2,680.00', diff: -12 },
+];
+
+const CARDS = [
+	{ number: '1109 8976 3521 9981', cvv: 123, exp: '11/24' },
+	{ number: '1109 8976 3521 9981', cvv: 123, exp: '11/24' },
+	{ number: '1109 8976 3521 9981', cvv: 123, exp: '11/24' },
+	{ number: '1109 8976 3521 9981', cvv: 123, exp: '11/24' },
 ];
 
 export const styles = stylex.create({
@@ -51,12 +66,67 @@ export const Dashboard = () => {
 							</Col>
 						))}
 					</Row>
-					<InsightsChart sx={styles.card} />
-					<Card title="Transactions" sx={styles.card}>
+					<Card header={<h5>Insights</h5>} sx={styles.card}>
+						<InsightsChart />
+					</Card>
+					<Card header={<h5>Transactions</h5>} sx={styles.card}>
 						<TransactionsTable />
 					</Card>
 				</Col>
-				<Col lg={4}></Col>
+				<Col lg={4}>
+					<Flex align="center">
+						<h4>my card</h4>
+						<Button leftSection={<PlusIcon size={18} />}>Add Card</Button>
+					</Flex>
+					<Card
+						header={
+							<Flex>
+								<CoinsIcon />
+								<h5>Top summary</h5>
+							</Flex>
+						}
+						sx={styles.card}
+					>
+						<SummaryChart />
+					</Card>
+					<Card
+						header={
+							<Flex>
+								<Wallet2 />
+								<h5>Balance</h5>
+							</Flex>
+						}
+						sx={styles.card}
+					>
+						<h3>$2,690.00</h3>
+						<List
+							items={CARDS.map((card) => (
+								<Flex align="center" justify="between">
+									<Flex direction="column">
+										<span>card number</span>
+										<span>{card.number}</span>
+									</Flex>
+									<Flex direction="column">
+										<span>cvv</span>
+										<span>{card.cvv}</span>
+									</Flex>
+									<Flex direction="column">
+										<span>expires</span>
+										<span>{card.exp}</span>
+									</Flex>
+								</Flex>
+							))}
+							direction="column"
+						/>
+						<Flex>
+							<Button leftSection={<ArrowDownCircle />}>Withdraw</Button>
+							<Button leftSection={<ArrowUpCircleIcon />}>Transfer</Button>
+							<IconButton>
+								<MoreVerticalIcon />
+							</IconButton>
+						</Flex>
+					</Card>
+				</Col>
 			</Row>
 		</AppLayout>
 	);

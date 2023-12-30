@@ -1,30 +1,24 @@
 import * as stylex from '@stylexjs/stylex';
-import {
-	ComponentProps,
-	JSXElementConstructor,
-	ReactElement,
-	ReactNode,
-} from 'react';
+import { ComponentProps, ReactNode } from 'react';
 import { styles } from './Card.styles.ts';
 import { BaseProps, IShadows } from '../../../types';
 
-export type CardProps = ({
-	children: ReactNode;
+export type CardProps = {
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
-	bg?: stylex.StyleXStyles<{ backgroundColo?: string }>;
+	bg?: stylex.StyleXStyles<{ backgroundColor?: string }>;
+	header?: ReactNode;
 	title?: ReactNode;
 	subtitle?: ReactNode;
 	footer?: ReactNode;
-	extra?: any;
+	extra?: ReactNode;
 	img?: string;
 	shadow?: IShadows;
 	border?: boolean;
-} & ComponentProps<'article'>) &
+} & Partial<ComponentProps<'article'>> &
 	BaseProps;
 
 export const Card = (props: CardProps) => {
 	const {
-		children,
 		bg,
 		w,
 		title,
@@ -33,13 +27,13 @@ export const Card = (props: CardProps) => {
 		subtitle,
 		border,
 		shadow,
+		header,
 		sx,
 		...others
 	} = props;
 
 	return (
 		<article
-			{...others}
 			{...stylex.props(
 				styles.base,
 				styles.w(w),
@@ -47,15 +41,17 @@ export const Card = (props: CardProps) => {
 				border && styles.border,
 				sx
 			)}
+			{...others}
 		>
 			<div {...stylex.props(styles.header)}>
 				<div>
+					{header}
 					{title}
 					{subtitle}
 				</div>
 				{extra}
 			</div>
-			<div {...stylex.props(styles.body)}>{children}</div>
+			<div {...stylex.props(styles.body)}>{others.children}</div>
 			<div {...stylex.props(styles.footer)}>{footer}</div>
 		</article>
 	);
