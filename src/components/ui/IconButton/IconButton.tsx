@@ -1,4 +1,4 @@
-import { ButtonVariants, ISizes } from '../../../types';
+import { BaseProps, ButtonVariants, ISizes } from '../../../types';
 import { ComponentProps } from 'react';
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './IconButton.styles.ts';
@@ -11,8 +11,8 @@ export type IconButtonProps = {
 	disabled?: boolean;
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
 	h?: stylex.StyleXStyles<{ height?: string | number }>;
-	sx?: stylex.StyleXStyles<{ textTransform?: string }>;
-} & ComponentProps<'button'>;
+} & ComponentProps<'button'> &
+	BaseProps;
 
 export const IconButton = (props: IconButtonProps) => {
 	const { href, variant = 'default', size = 'md', w, sx, h, ...others } = props;

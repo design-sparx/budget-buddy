@@ -1,6 +1,8 @@
 import * as stylex from '@stylexjs/stylex';
 import { radius, spacing, tokens } from '../../../token.stylex.ts';
 
+const DARK = '@media (prefers-color-scheme: dark)';
+
 const scaleIn = stylex.keyframes({
 	from: { opacity: 0, transform: 'rotateX(-30deg) scale(0.9)' },
 	to: { opacity: 1, transform: 'rotateX(0) scale(1)' },
@@ -31,6 +33,28 @@ const exitToLeft = stylex.keyframes({
 	to: { opacity: 0, transform: 'translateX(-200px)' },
 });
 
+const slideUpAndFade = stylex.keyframes({
+	from: {
+		opacity: 0,
+		transform: 'translateY(2px)',
+	},
+	to: {
+		opacity: 1,
+		transform: 'translateY(0)',
+	},
+});
+
+const slideDownAndFade = stylex.keyframes({
+	from: {
+		opacity: 0,
+		transform: 'translateY(-2px)',
+	},
+	to: {
+		opacity: 1,
+		transform: 'translateY(0)',
+	},
+});
+
 export const styles = stylex.create({
 	root: {
 		display: 'flex',
@@ -39,13 +63,15 @@ export const styles = stylex.create({
 		maxWidth: '100vw',
 		backgroundColor: tokens.primaryBgSubtle,
 		zIndex: 1,
-		padding: '0 16px',
+		padding: spacing['4'],
 	},
 	list: {
 		display: 'flex',
 		listStyle: 'none',
 		alignItems: 'center',
 		gap: spacing['2'],
+		padding: 0,
+		margin: 0,
 	},
 	link: {
 		padding: '8px 12px',
@@ -119,6 +145,7 @@ export const styles = stylex.create({
 		top: '5%',
 		left: 0,
 		perspective: '2000px',
+		zIndex: 2,
 	},
 	menuList: {
 		display: 'grid',
@@ -134,13 +161,14 @@ export const styles = stylex.create({
 		outline: 'none',
 		textDecoration: 'none',
 		userSelect: 'none',
-		padding: '12px',
-		borderRadius: '6px',
+		padding: spacing['4'],
+		borderRadius: spacing['3'],
 		fontSize: '16px',
 		lineHeight: 1,
 
 		':hover': {
 			backgroundColor: tokens.primaryBgActive,
+			transition: 'all 250ms ease',
 		},
 	},
 	menuListHeading: {
@@ -158,11 +186,72 @@ export const styles = stylex.create({
 	menuIcon: {
 		position: 'relative',
 		color: tokens.primaryText,
-		// top: '1px',
 		transition: 'transform 250ms ease',
 
 		":is([data-state='open'])": {
 			transform: 'rotate(-180deg)',
+		},
+	},
+	buttonLink: {
+		textDecoration: 'none',
+	},
+	dropdown: {},
+	dropdownContent: {
+		minWidth: '220px',
+		backgroundColor: tokens.primaryBg,
+		borderRadius: '6px',
+		padding: '5px',
+		boxShadow:
+			'0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
+		animationDuration: '400ms',
+		animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+		willChange: 'transform, opacity',
+
+		":is([data-side='top'])": {
+			animationName: slideDownAndFade,
+		},
+		":is([data-side='bottom'])": {
+			animationName: slideUpAndFade,
+		},
+	},
+	dropdownItem: {
+		color: {
+			default: 'black',
+			[DARK]: 'white',
+		},
+		fontSize: '13px',
+		lineHeight: 1,
+		borderRadius: '3px',
+		display: 'flex',
+		alignItems: 'center',
+		height: '25px',
+		padding: '0 5px',
+		position: 'relative',
+		paddingLeft: '25px',
+		userSelect: 'none',
+		outline: 'none',
+
+		":is(data-disabled='true')": {
+			color: 'gray',
+			pointerEvents: 'none',
+		},
+
+		":is(data-highlighted='true')": {
+			backgroundColor: 'gray',
+		},
+	},
+	dropdownTrigger: {
+		color: {
+			default: 'black',
+			[DARK]: 'white',
+		},
+		width: '100%',
+	},
+	mobileLink: {
+		textDecoration: 'none',
+		color: {
+			default: 'black',
+			[DARK]: 'white',
 		},
 	},
 });
