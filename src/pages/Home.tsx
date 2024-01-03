@@ -17,7 +17,7 @@ export const styles = stylex.create({
 	},
 	cardTitle: {
 		fontSize: fontSizes.h6,
-		fontWeight: 400,
+		fontWeight: 500,
 	},
 	cardImg: {
 		width: '100%',
@@ -30,7 +30,7 @@ export const Home = () => {
 	return (
 		<GuestLayout>
 			<HeroSection />
-			<Container fluid>
+			<Container>
 				<Row>
 					<Col lg={8}>
 						<Card title="Latest updates" sx={styles.card}>

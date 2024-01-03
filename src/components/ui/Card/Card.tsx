@@ -44,7 +44,7 @@ export const Card = (props: CardProps) => {
 			{...others}
 		>
 			<div {...stylex.props(styles.header)}>
-				<div>
+				<div {...stylex.props(styles.title)}>
 					{header}
 					{title}
 					{subtitle}
