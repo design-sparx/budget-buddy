@@ -3,13 +3,35 @@ import { fontSizes, spacing, tokens } from '../../../token.stylex.ts';
 
 const DARK = '@media (prefers-color-scheme: dark)';
 
+const contentShow = stylex.keyframes({
+	from: {
+		opacity: 0,
+		transform: 'translate(-50%, -48%) scale(0.96)',
+	},
+	to: {
+		opacity: 1,
+		transform: 'translate(-50%, -50%) scale(1)',
+	},
+});
+
+const overlayShow = stylex.keyframes({
+	from: {
+		opacity: 0,
+	},
+	to: {
+		opacity: 1,
+	},
+});
+
 export const styles = stylex.create({
 	base: {},
 	overlay: {
 		backgroundColor: tokens.primaryBgSubtle,
 		position: 'fixed',
 		inset: 0,
-		animation: 'overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+		animationName: overlayShow,
+		animationDuration: '150ms',
+		animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
 	},
 	content: {
 		backgroundColor: {
@@ -22,10 +44,13 @@ export const styles = stylex.create({
 		position: 'fixed',
 		top: '0%',
 		left: '0%',
+		width: '300px',
 		maxWidth: '450px',
 		height: '100dvh',
 		padding: '25px',
-		animation: 'contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1)',
+		animationName: contentShow,
+		animationDuration: '150ms',
+		animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
 
 		':focus': {
 			outline: 'none',

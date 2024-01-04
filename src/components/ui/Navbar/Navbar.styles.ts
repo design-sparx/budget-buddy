@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { radius, spacing, tokens } from '../../../token.stylex.ts';
+import { fontSizes, radius, spacing, tokens } from '../../../token.stylex.ts';
 
 const DARK = '@media (prefers-color-scheme: dark)';
 
@@ -198,7 +198,10 @@ export const styles = stylex.create({
 	dropdown: {},
 	dropdownContent: {
 		minWidth: '220px',
-		backgroundColor: tokens.primaryBg,
+		backgroundColor: {
+			default: 'white',
+			[DARK]: 'black',
+		},
 		borderRadius: '6px',
 		padding: '5px',
 		boxShadow:
@@ -219,17 +222,18 @@ export const styles = stylex.create({
 			default: 'black',
 			[DARK]: 'white',
 		},
-		fontSize: '13px',
+		fontSize: fontSizes.normal,
 		lineHeight: 1,
 		borderRadius: '3px',
 		display: 'flex',
 		alignItems: 'center',
 		height: '25px',
-		padding: '0 5px',
+		padding: `0 ${spacing['1']}`,
 		position: 'relative',
 		paddingLeft: '25px',
 		userSelect: 'none',
 		outline: 'none',
+		marginBottom: spacing['2'],
 
 		":is(data-disabled='true')": {
 			color: 'gray',
@@ -239,6 +243,11 @@ export const styles = stylex.create({
 		":is(data-highlighted='true')": {
 			backgroundColor: 'gray',
 		},
+
+		':hover': {
+			cursor: 'pointer',
+			textDecoration: 'underline',
+		},
 	},
 	dropdownTrigger: {
 		color: {
@@ -246,12 +255,20 @@ export const styles = stylex.create({
 			[DARK]: 'white',
 		},
 		width: '100%',
+		':hover': {
+			cursor: 'pointer',
+			textDecoration: 'underline',
+		},
 	},
 	mobileLink: {
 		textDecoration: 'none',
 		color: {
 			default: 'black',
 			[DARK]: 'white',
+		},
+		':hover': {
+			cursor: 'pointer',
+			textDecoration: 'underline',
 		},
 	},
 });

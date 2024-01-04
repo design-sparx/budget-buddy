@@ -139,14 +139,20 @@ export const Navbar = () => {
 						</DropdownMenu.Trigger>
 						<DropdownMenu.Portal>
 							<DropdownMenu.Content
-								className="DropdownMenuContent"
-								sideOffset={5}
+								sideOffset={0}
+								{...stylex.props(styles.dropdownContent)}
 							>
 								<DropdownMenu.Item {...stylex.props(styles.dropdownItem)}>
-									New Tab <div className="RightSlot">⌘+T</div>
+									Introduction
 								</DropdownMenu.Item>
 								<DropdownMenu.Item {...stylex.props(styles.dropdownItem)}>
-									New Window <div className="RightSlot">⌘+N</div>
+									Styling
+								</DropdownMenu.Item>
+								<DropdownMenu.Item {...stylex.props(styles.dropdownItem)}>
+									Getting started
+								</DropdownMenu.Item>
+								<DropdownMenu.Item {...stylex.props(styles.dropdownItem)}>
+									Animation
 								</DropdownMenu.Item>
 							</DropdownMenu.Content>
 						</DropdownMenu.Portal>
@@ -159,6 +165,12 @@ export const Navbar = () => {
 					</WouterLink>
 					<WouterLink href="#" {...stylex.props(styles.mobileLink)}>
 						Blog
+					</WouterLink>
+					<WouterLink href={PATH_APP.root} {...stylex.props(styles.mobileLink)}>
+						Login
+					</WouterLink>
+					<WouterLink href={PATH_APP.root} {...stylex.props(styles.mobileLink)}>
+						Signup
 					</WouterLink>
 				</Flex>
 			</Drawer>

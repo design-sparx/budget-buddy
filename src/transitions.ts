@@ -81,3 +81,25 @@ export const slideDownAndFade = stylex.keyframes({
 		transform: 'translateY(0)',
 	},
 });
+
+export const slideRightAndFade = stylex.keyframes({
+	from: {
+		opacity: 0,
+		transform: 'translateX(-2px)',
+	},
+	to: {
+		opacity: 1,
+		transform: 'translateX(0)',
+	},
+});
+
+export const slideLeftAndFade = stylex.keyframes({
+	from: {
+		opacity: 0,
+		transform: 'translateX(2px)',
+	},
+	to: {
+		opacity: 1,
+		transform: 'translateX(0)',
+	},
+});
