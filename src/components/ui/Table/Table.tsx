@@ -150,24 +150,28 @@ export function Table<TData, TValue>({
 					<IconButton
 						onClick={() => table.setPageIndex(0)}
 						disabled={!table.getCanPreviousPage()}
+						variant="outline"
 					>
 						<ChevronFirstIcon size={16} />
 					</IconButton>
 					<IconButton
 						onClick={() => table.previousPage()}
 						disabled={!table.getCanPreviousPage()}
+						variant="outline"
 					>
 						<ChevronLeftIcon size={16} />
 					</IconButton>
 					<IconButton
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
+						variant="outline"
 					>
 						<ChevronRightIcon size={16} />
 					</IconButton>
 					<IconButton
 						onClick={() => table.setPageIndex(table.getPageCount() - 1)}
 						disabled={!table.getCanNextPage()}
+						variant="outline"
 					>
 						<ChevronLastIcon size={16} />
 					</IconButton>

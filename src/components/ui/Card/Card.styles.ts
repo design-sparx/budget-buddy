@@ -22,7 +22,7 @@ export const styles = stylex.create({
 	text: {},
 	title: {
 		fontSize: fontSizes.h5,
-		margin: `0 0 ${spacing['3']} 0`,
+		margin: 0,
 		fontWeight: 500,
 	},
 	subtitle: {

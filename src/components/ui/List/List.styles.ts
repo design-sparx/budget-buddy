@@ -1,9 +1,12 @@
 import * as stylex from '@stylexjs/stylex';
-import { tokens } from '../../../token.stylex.ts';
+import { spacing, tokens } from '../../../token.stylex.ts';
 
 export const styles = stylex.create({
 	base: {
 		backgroundColor: tokens.primaryBg,
 	},
-	item: {},
+	item: {
+		padding: `${spacing['2']} 0`,
+		borderBottom: `1px solid ${tokens.grayBorder}`,
+	},
 });

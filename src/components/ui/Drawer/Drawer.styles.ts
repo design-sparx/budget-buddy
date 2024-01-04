@@ -78,6 +78,10 @@ export const styles = stylex.create({
 		position: 'absolute',
 		top: '10px',
 		right: '10px',
+		color: {
+			default: 'black',
+			[DARK]: 'white',
+		},
 	},
 	w: (width) => ({
 		width,

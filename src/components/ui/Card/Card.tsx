@@ -2,6 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 import { ComponentProps, ReactNode } from 'react';
 import { styles } from './Card.styles.ts';
 import { BaseProps, IShadows } from '../../../types';
+import { Flex } from '../Flex';
 
 export type CardProps = {
 	w?: stylex.StyleXStyles<{ width?: string | number }>;
@@ -43,14 +44,14 @@ export const Card = (props: CardProps) => {
 			)}
 			{...others}
 		>
-			<div {...stylex.props(styles.header)}>
+			<Flex align="center" justify="between">
 				<div {...stylex.props(styles.title)}>
 					{header}
 					{title}
 					{subtitle}
 				</div>
 				{extra}
-			</div>
+			</Flex>
 			<div {...stylex.props(styles.body)}>{others.children}</div>
 			<div {...stylex.props(styles.footer)}>{footer}</div>
 		</article>

@@ -1,17 +1,17 @@
 import { Flex } from '../Flex';
 import { Logo } from '../../Logo';
 import {
-	LayoutDashboardIcon,
-	SettingsIcon,
-	PieChartIcon,
 	BarChart2Icon,
+	LayoutDashboardIcon,
+	PieChartIcon,
+	SettingsIcon,
 } from 'lucide-react';
 import { PATH_APP } from '../../../constants/routes.ts';
 import { NavLink } from '../NavLink';
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './NavSidebar.styles.ts';
 
-const LINKS = [
+export const LINKS = [
 	{
 		title: 'home',
 		icon: <LayoutDashboardIcon />,
@@ -24,7 +24,7 @@ const LINKS = [
 ];
 
 export type NavSidebarProps = {
-	w?: stylex.StyleXStyles<{ width?: string | number }>;
+	w?: string | number;
 	sx?: stylex.StyleXStyles;
 };
 

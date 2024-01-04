@@ -1,8 +1,8 @@
 import { AppLayout } from '../layout';
 import { Col, Row } from 'react-grid-system';
-import { Button, Card, Flex, IconButton, List } from '../components/ui';
+import { Button, Card, Flex, IconButton, List, Select } from '../components/ui';
 import * as stylex from '@stylexjs/stylex';
-import { spacing, tokens } from '../token.stylex.ts';
+import { fontSizes, spacing, tokens } from '../token.stylex.ts';
 import { StatsCard } from '../components/StatsCard';
 import { InsightsChart, SummaryChart } from '../components/Charts';
 import { TransactionsTable } from '../components/TransactionsTable';
@@ -14,6 +14,7 @@ import {
 	PlusIcon,
 	Wallet2,
 } from 'lucide-react';
+import { useMediaQuery } from 'react-responsive';
 
 const STATS = [
 	{ title: 'total income', amount: '$16,080.00', diff: 23 },
@@ -33,19 +34,37 @@ export const styles = stylex.create({
 	text: {
 		color: tokens.grayText,
 	},
-	title: {},
-	card: { marginBottom: spacing['4'] },
+	title: {
+		fontSize: fontSizes.h4,
+		textTransform: 'capitalize',
+		color: tokens.grayText,
+		fontWeight: 500,
+		marginBottom: spacing['4'],
+	},
+	card: {
+		marginBottom: spacing['4'],
+	},
 	subTitle: {},
 });
 
 export const Dashboard = () => {
+	const isDesktopOrLaptop = useMediaQuery({
+		query: '(min-width: 1224px)',
+	});
+
 	return (
 		<AppLayout>
 			<Row>
 				<Col lg={8}>
-					<Flex>
-						<h3 {...stylex.props(styles.text)}>money insight</h3>
-						<p> last 30 days</p>
+					<Flex align="center" justify="between">
+						<h3 {...stylex.props(styles.title)}>money insight</h3>
+						<Select
+							defaultValue="30"
+							items={[30, 60, 90, 150].map((_) => ({
+								label: `${_} days`,
+								value: _.toString(),
+							}))}
+						/>
 					</Flex>
 					<Card title="Total earnings" sx={styles.card}>
 						<h1>$ 26,800.00</h1>
@@ -55,9 +74,13 @@ export const Dashboard = () => {
 							place.
 						</p>
 					</Card>
-					<Row style={{ marginBottom: spacing['4'] }}>
+					<Row style={{ marginBottom: isDesktopOrLaptop ? spacing['4'] : 0 }}>
 						{STATS.map((stat) => (
-							<Col key={`${stat.title}-${stat.diff}`} lg={4}>
+							<Col
+								key={`${stat.title}-${stat.diff}`}
+								lg={4}
+								style={{ marginBottom: isDesktopOrLaptop ? 0 : spacing['4'] }}
+							>
 								<StatsCard
 									title={stat.title}
 									diff={stat.diff}
@@ -66,63 +89,62 @@ export const Dashboard = () => {
 							</Col>
 						))}
 					</Row>
-					<Card header={<h5>Insights</h5>} sx={styles.card}>
+					<Card title="Insights" sx={styles.card}>
 						<InsightsChart />
 					</Card>
-					<Card header={<h5>Transactions</h5>} sx={styles.card}>
+					<Card title="Transactions" sx={styles.card}>
 						<TransactionsTable />
 					</Card>
 				</Col>
 				<Col lg={4}>
-					<Flex align="center">
-						<h4>my card</h4>
-						<Button leftSection={<PlusIcon size={18} />}>Add Card</Button>
+					<Flex align="center" justify="between">
+						<h3 {...stylex.props(styles.title)}>my card</h3>
+						<Button leftSection={<PlusIcon size={18} />} variant="filled">
+							Add Card
+						</Button>
 					</Flex>
-					<Card
-						header={
-							<Flex>
-								<CoinsIcon />
-								<h5>Top summary</h5>
-							</Flex>
-						}
-						sx={styles.card}
-					>
+					<Card title="Top summary" extra={<CoinsIcon />} sx={styles.card}>
 						<SummaryChart />
 					</Card>
-					<Card
-						header={
-							<Flex>
-								<Wallet2 />
-								<h5>Balance</h5>
-							</Flex>
-						}
-						sx={styles.card}
-					>
-						<h3>$2,690.00</h3>
+					<Card title="Balance" extra={<Wallet2 />} sx={styles.card}>
+						<h2>$2,690.00</h2>
 						<List
 							items={CARDS.map((card) => (
 								<Flex align="center" justify="between">
 									<Flex direction="column">
-										<span>card number</span>
+										<strong>Card number</strong>
 										<span>{card.number}</span>
 									</Flex>
 									<Flex direction="column">
-										<span>cvv</span>
+										<strong>CVV</strong>
 										<span>{card.cvv}</span>
 									</Flex>
 									<Flex direction="column">
-										<span>expires</span>
+										<strong>Expires</strong>
 										<span>{card.exp}</span>
 									</Flex>
 								</Flex>
 							))}
 							direction="column"
 						/>
-						<Flex>
-							<Button leftSection={<ArrowDownCircle />}>Withdraw</Button>
-							<Button leftSection={<ArrowUpCircleIcon />}>Transfer</Button>
-							<IconButton>
-								<MoreVerticalIcon />
+						<br />
+						<Flex align="center" justify="between">
+							<Flex>
+								<Button
+									leftSection={<ArrowDownCircle size={18} />}
+									variant="outline"
+								>
+									Withdraw
+								</Button>
+								<Button
+									leftSection={<ArrowUpCircleIcon size={18} />}
+									variant="outline"
+								>
+									Transfer
+								</Button>
+							</Flex>
+							<IconButton variant="outline">
+								<MoreVerticalIcon size={18} />
 							</IconButton>
 						</Flex>
 					</Card>

@@ -46,7 +46,6 @@ export const Select = ({
 		<Root
 			value={value}
 			onValueChange={(e) => {
-				console.log(e);
 				setValue(e);
 				if (onChange) {
 					onChange(e);

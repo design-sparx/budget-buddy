@@ -23,7 +23,7 @@ ChartJS.register(
 export const options = {
 	plugins: {
 		title: {
-			display: true,
+			display: false,
 			text: 'Chart.js Bar Chart - Stacked',
 		},
 	},

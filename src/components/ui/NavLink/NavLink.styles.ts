@@ -21,5 +21,6 @@ export const styles = stylex.create({
 	},
 	active: {
 		backgroundColor: tokens.primaryBgActive,
+		textDecoration: 'underline',
 	},
 });

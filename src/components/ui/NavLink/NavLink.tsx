@@ -2,6 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 import { ComponentProps, ReactNode } from 'react';
 import { Link } from 'wouter';
 import { styles } from './NavLink.styles.ts';
+import { BaseProps } from '../../../types';
 
 export type NavLinkProps = {
 	href: string;
@@ -9,8 +10,8 @@ export type NavLinkProps = {
 	active?: boolean;
 	leftSection?: ReactNode;
 	rightSection?: ReactNode;
-	sx?: stylex.StyleXStyles;
-} & ComponentProps<'div'>;
+} & ComponentProps<'div'> &
+	BaseProps;
 
 export const NavLink = (props: NavLinkProps) => {
 	const { label, leftSection, rightSection, href, active, sx, ...others } =

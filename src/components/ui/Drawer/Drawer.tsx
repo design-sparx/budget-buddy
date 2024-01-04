@@ -5,11 +5,12 @@ import { XIcon } from 'lucide-react';
 import { BaseProps } from '../../../types';
 import { styles } from './Drawer.styles.ts';
 import { IconButton } from '../IconButton';
+import { ReactNode } from 'react';
 
 const { Root, Portal, Overlay, Content, Title, Description } = Dialog;
 
 export type DrawerProps = {
-	title: string;
+	title: ReactNode;
 	description?: string;
 	w?: string | number;
 } & DialogProps &
