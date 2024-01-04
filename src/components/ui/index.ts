@@ -16,6 +16,6 @@ export {
 	type TextFieldSizes,
 	type TextFieldProps,
 } from './TextField';
-export { Select, type SelectProps, SelectItem } from './Select';
+export { Select, type SelectsProps, SelectItem } from './Select';
 export { List, type ListProps } from './List';
 export { Drawer, type DrawerProps } from './Drawer';
